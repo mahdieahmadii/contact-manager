@@ -1,7 +1,8 @@
-import { PINK } from '../../../helpers/colors/index';
+import { CURRENTLINE, PINK, ORANGE } from '../../../helpers/colors/index';
 import { Contact } from '../../Contact/index';
 
-export const Contacts = () => {
+export const Contacts = (props) => {
+    const { contacts } = props;
     return (
         <>
             <section className="container">
@@ -20,10 +21,15 @@ export const Contacts = () => {
             </section>
             <section className="container">
                 <div className="row">
-                    <Contact />
+                    {
+                        contacts.length > 0 ? contacts.map(c => <Contact key={c.id} contact={c} />) :
+                            (<div className="text-center py-5">
+                                <p className="h3" style={{ color: ORANGE }}>مخاطب یافت نشد ...</p>
+                                <img src={require("../../../assets/no-found.gif")} alt="پیدا نشد" className="w-25" />
+                            </div>)
+                    }
                 </div>
             </section>
         </>
-
     )
 }
