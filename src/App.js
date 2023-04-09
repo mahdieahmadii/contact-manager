@@ -1,10 +1,10 @@
 import "./App.css";
+import Navbar from "./components/Contact/index";
 
 const App = () => {
   return (
     <div className="App">
-      <h3>اپلیکیشن مدیریت مخاطبین</h3>
-      <button className="btn btn-primary">click</button>
+      <Navbar />
     </div>
   );
 };
