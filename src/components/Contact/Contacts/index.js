@@ -1,7 +1,9 @@
-import { PINK } from "../../../helpers/colors";
+import { CURRENTLINE, ORANGE, PINK } from "../../../helpers/colors";
 import Contact from "../Contact";
+import NotFound from "../../../assets/no-found.gif";
+import Spinner from "../../Spinner";
 
-const Contacts = () => {
+const Contacts = ({ contacts, loading }) => {
   return (
     <>
       <section className="container">
@@ -17,11 +19,28 @@ const Contacts = () => {
           </div>
         </div>
       </section>
-      <section className="container">
-        <div className="row">
-            <Contact />
-        </div>
-      </section>
+
+      {loading ? (
+        <Spinner />
+      ) : (
+        <section className="container">
+          <div className="row">
+            {contacts.length ? (
+              contacts.map((c) => <Contact key={c.id} contact={c} />)
+            ) : (
+              <div
+                className="text-center py-5"
+                style={{ backgroundColor: CURRENTLINE }}
+              >
+                <p className="h3" style={{ color: ORANGE }}>
+                  مخاطب یافت نشد ...
+                </p>
+                <img src={NotFound} alt="یافت نشد" className="w-25" />
+              </div>
+            )}
+          </div>
+        </section>
+      )}
     </>
   );
 };
