@@ -6,7 +6,7 @@ import {
   CURRENTLINE,
 } from "../../../helpers/colors";
 
-const Contact = () => {
+const Contact = ({ contact }) => {
   return (
     <>
       <div className="col-md-6">
@@ -15,8 +15,8 @@ const Contact = () => {
             <div className="row align-items-center d-flex justify-content-around">
               <div className="col-md-4 col-sm-4">
                 <img
-                  src="https://via.placeholder.com/200"
-                  alt=""
+                  src={contact.photo}
+                  alt={contact.fullname}
                   style={{ border: `1px solid ${PURPLE}` }}
                   className="img-fluid rounded"
                 />
@@ -25,14 +25,15 @@ const Contact = () => {
                 <ul className="list-group">
                   <li className="list-group-item list-group-item-dark">
                     نام و نام خانوادگی :{" "}
-                    <span className="fw-bold">مهدیه احمدی</span>
+                    <span className="fw-bold">{contact.fullname}</span>
                   </li>
                   <li className="list-group-item list-group-item-dark">
-                    شماره موبایل : <span className="fw-bold">09375075603</span>
+                    شماره موبایل :{" "}
+                    <span className="fw-bold">{contact.mobile}</span>
                   </li>
                   <li className="list-group-item list-group-item-dark">
                     آدرس ایمیل :{" "}
-                    <span className="fw-bold">mahdieahmadii97@gmail.com</span>
+                    <span className="fw-bold">{contact.email}</span>
                   </li>
                 </ul>
               </div>
