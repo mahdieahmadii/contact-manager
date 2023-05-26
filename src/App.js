@@ -15,6 +15,7 @@ import {
 const App = () => {
   const [getContacts, setContacts] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [forceRender, setForceRender] = useState(false);
   const [getGroups, setGroups] = useState([]);
   const [getContact, setContact] = useState({
     fullname: "",
@@ -43,6 +44,20 @@ const App = () => {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        const { data: contactsData } = await getAllContacts();
+        setContacts(contactsData);
+        setLoading(false);
+      } catch (err) {
+        setLoading(false);
+      }
+    };
+    fetchData();
+  }, [forceRender]);
+
   const createContactForm = async (event) => {
     event.preventDefault();
     try {
@@ -50,6 +65,7 @@ const App = () => {
 
       if (status === 201) {
         setContact({});
+        setForceRender(!forceRender);
         navigate("/contacts");
       }
     } catch (err) {

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import {
   CYAN,
   PURPLE,
@@ -38,12 +39,13 @@ const Contact = ({ contact }) => {
                 </ul>
               </div>
               <div className="col-md-1 col-sm-1 d-flex flex-column align-items-center">
-                <button
+                <Link
+                  to={`/contacts/${contact.id}`}
                   className="btn my-1"
                   style={{ backgroundColor: ORANGE }}
                 >
                   <i className="fa fa-eye" />
-                </button>
+                </Link>
                 <button className="btn my-1" style={{ backgroundColor: CYAN }}>
                   <i className="fa fa-pen" />
                 </button>
