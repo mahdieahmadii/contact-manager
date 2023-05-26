@@ -7,7 +7,7 @@ import {
   CURRENTLINE,
 } from "../../../helpers/colors";
 
-const Contact = ({ contact }) => {
+const Contact = ({ contact, confirmDelete }) => {
   return (
     <>
       <div className="col-md-6">
@@ -53,7 +53,11 @@ const Contact = ({ contact }) => {
                 >
                   <i className="fa fa-pen" />
                 </Link>
-                <button className="btn my-1" style={{ backgroundColor: RED }}>
+                <button
+                  className="btn my-1"
+                  style={{ backgroundColor: RED }}
+                  onClick={confirmDelete}
+                >
                   <i className="fa fa-trash" />
                 </button>
               </div>
