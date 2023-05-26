@@ -6,7 +6,9 @@
       "mobile": "0937507073",
       "email": "mahdierezaee@gmail.com",
       "job": "برنامه نویس",
-      "group": "1",
+      "group": [
+        "3"
+      ],
       "id": 2
     },
     {

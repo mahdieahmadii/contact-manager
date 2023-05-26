@@ -46,9 +46,13 @@ const Contact = ({ contact }) => {
                 >
                   <i className="fa fa-eye" />
                 </Link>
-                <button className="btn my-1" style={{ backgroundColor: CYAN }}>
+                <Link
+                  to={`/contacts/edit/${contact.id}`}
+                  className="btn my-1"
+                  style={{ backgroundColor: CYAN }}
+                >
                   <i className="fa fa-pen" />
-                </button>
+                </Link>
                 <button className="btn my-1" style={{ backgroundColor: RED }}>
                   <i className="fa fa-trash" />
                 </button>
