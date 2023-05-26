@@ -11,13 +11,13 @@ const Contacts = ({ contacts, loading, confirmDelete }) => {
         <div className="grid">
           <div className="row">
             <div className="col">
-              <p className="h3">
+              <p className="h3 float-end">
                 <Link
                   to={"/contacts/add"}
-                  className="btn mx-2"
+                  className="btn m-2"
                   style={{ backgroundColor: PINK }}
                 >
-                  ساخت مخاطب حدید <i className="fa fa-plus-circle mx-2" />
+                  ساخت مخاطب جدید <i className="fa fa-plus-circle mx-2" />
                 </Link>
               </p>
             </div>
